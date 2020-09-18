@@ -4,17 +4,18 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const Post = require('./models/post');
+const db = require('./db');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://mean:bXIWvOwkoeJy9oAH@cluster0.kilap.mongodb.net/test?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://' + db.user + ':' + db.password + '@cluster0.kilap.mongodb.net/' + db.name + '?retryWrites=true&w=majority',
   { useNewUrlParser: true },
   { useUnifiedTopology: true })
   .then(() => {
-    console.log('Connected to database!')
+    console.log('Connected to database!');
   })
   .catch(() => {
-    console.log('Connection failed!')
+    console.log('Connection failed!');
   });
 
 
@@ -59,7 +60,7 @@ app.get('/api/posts', (req, res, next) => {
 
 app.delete('/api/posts/:id', (req, res, next) => {
 
-  Post.deleteOne({_id: req.params.id})
+  Post.deleteOne({ _id: req.params.id })
     .then(result => {
       console.log(result);
       res.status(200).json({
