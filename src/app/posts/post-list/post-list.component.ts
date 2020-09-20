@@ -11,15 +11,7 @@ import { PostService } from '../post.service';
 
 export class PostListComponent implements OnInit, OnDestroy {
 
-  /* posts = [
-    { title: 'First Post', content: 'This is first post' },
-    { title: 'Second Post', content: 'This is second post' },
-    { title: 'Third Post', content: 'This is third post' },
-    { title: 'Fourth Post', content: 'This is fourth post' },
-    { title: 'Fifth Post', content: 'This is fifth post' }
-  ] */
-
-  /* @Input() */ posts: Post[] = [];
+  posts: Post[] = [];
   private postsSub: Subscription;
 
 
