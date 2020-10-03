@@ -3,6 +3,9 @@
 # DB credentials
 /backend/db.json
 
+# backend image store
+/backend/images
+
 # compiled output
 /dist
 /tmp
