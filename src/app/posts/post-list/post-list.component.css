@@ -1,6 +1,6 @@
 :host {
   display: block;
-  margin-top: 15pX;
+  margin-top: 15px;
 }
 
 .info-text {
@@ -16,4 +16,8 @@ mat-spinner {
 }
 .post-image img {
   width: 100%;
+}
+
+mat-paginator {
+  margin-top: 15px;
 }
