@@ -17,7 +17,7 @@ import { HeaderComponent } from './header/header.component';
 import { PostListComponent } from './posts/post-list/post-list.component';
 import { AppRoutingModule } from './app-routing.modul';
 import { LoginComponent } from './auth/login/login.component';
-import { signupComponent } from './auth/signup/signup.component';
+import { SignUpComponent } from './auth/signup/signup.component';
 import { AuthInterceptor } from './auth/auth-interceptor';
 
 
@@ -28,7 +28,7 @@ import { AuthInterceptor } from './auth/auth-interceptor';
     HeaderComponent,
     PostListComponent,
     LoginComponent,
-    signupComponent
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

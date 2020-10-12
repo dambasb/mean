@@ -9,18 +9,19 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./signup.component.css']
 })
 
-export class signupComponent {
+export class SignUpComponent {
 
   isLoading = false;
 
   constructor(public authService: AuthService) { }
 
-  onsignup(form: NgForm) {
+  onSignUp(form: NgForm) {
 
     if (form.invalid) {
       return;
     };
 
+    this.isLoading = true;
     this.authService.createUser(form.value.email, form.value.password);
   }
 }
