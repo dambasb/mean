@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Post } from '../post.model';
-import { PostService } from '../post.service';
+import { PostsService } from '../posts.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { mimeType } from "./mine-type.validator";
 import { Subscription } from 'rxjs';
@@ -26,7 +26,7 @@ export class PostCreateComponent implements OnInit, OnDestroy {
   post: Post;
 
   constructor(
-    public postService: PostService,
+    public PostsService: PostsService,
     public route: ActivatedRoute,
     private authService: AuthService
   ) { }
@@ -53,7 +53,7 @@ export class PostCreateComponent implements OnInit, OnDestroy {
         this.mode = "edit";
         this.postId = paramMap.get("postId");
         this.isLoading = true;
-        this.postService.getPost(this.postId).subscribe(postData => {
+        this.PostsService.getPost(this.postId).subscribe(postData => {
           this.isLoading = false;
           this.post = {
             id: postData._id,
@@ -95,9 +95,9 @@ export class PostCreateComponent implements OnInit, OnDestroy {
     this.isLoading = true;
 
     if (this.mode === 'create') {
-      this.postService.addPost(this.form.value.title, this.form.value.content, this.form.value.image);
+      this.PostsService.addPost(this.form.value.title, this.form.value.content, this.form.value.image);
     } else {
-      this.postService.updatePost(this.postId, this.form.value.title, this.form.value.content, this.form.value.image);
+      this.PostsService.updatePost(this.postId, this.form.value.title, this.form.value.content, this.form.value.image);
     }
 
     this.form.reset();

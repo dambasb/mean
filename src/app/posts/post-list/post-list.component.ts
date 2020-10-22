@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 import { PageEvent } from '@angular/material/paginator';
 
 import { Post } from '../post.model';
-import { PostService } from '../post.service';
+import { PostsService } from '../posts.service';
 import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
@@ -25,7 +25,7 @@ export class PostListComponent implements OnInit, OnDestroy {
   userIsAuthenticated = false;
   userId: string;
 
-  constructor(public postsService: PostService, private authService: AuthService) { }
+  constructor(public postsService: PostsService, private authService: AuthService) { }
 
   ngOnInit() {
 

@@ -10,7 +10,7 @@ const db = require('./db');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://' + db.user + ':' + db.password + '@cluster0.kilap.mongodb.net/' + db.name + '?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://' + process.env.MONGO_ATLAS_USER + ':' + process.env.MONGO_ATLAS_PW + '@cluster0.kilap.mongodb.net/' + process.env.MONGO_ATLAS_NAME + '?retryWrites=true&w=majority',
   { useNewUrlParser: true },
   { useUnifiedTopology: true })
   .then(() => {
